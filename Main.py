@@ -15,7 +15,7 @@ def add_row_to_csv(file_path, data):
         writer.writerow(data)
 
 # Load the existing dataset
-file_path = 'D:\\_igetintopc.com_App_Builder_2018\\_igetintopc.com_App_Builder_2018.133\\Housing.csv'
+file_path = 'Housing.csv'
 data = pd.read_csv(file_path)
 
 # Split the data into features (X) and target (y)

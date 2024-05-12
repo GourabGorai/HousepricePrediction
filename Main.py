@@ -7,6 +7,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 import matplotlib.pyplot as plt
+import os
 
 # Function to add a row to the CSV file
 def add_row_to_csv(file_path, data):
@@ -14,8 +15,37 @@ def add_row_to_csv(file_path, data):
         writer = csv.writer(csvfile)
         writer.writerow(data)
 
+required_columns = ['price','area',	'bedrooms',	'bathrooms',	'stories',	'mainroad',	'guestroom',	'basement',	'hotwaterheating',	'airconditioning',	'parking',	'prefarea',	'furnishingstatus']  # Update with your required column names
+
+while True:
+    file_path = st.text_input("Enter the file path:")
+
+    if not os.path.isfile(file_path):
+        st.error("File not found. Please enter a valid file path.")
+        continue
+
+    file_extension = os.path.splitext(file_path)[1]
+
+    if file_extension.lower() != '.csv':
+        st.error("Invalid file format. Please enter a CSV file.")
+        continue
+
+    # Check if all required columns are present
+    try:
+        df = pd.read_csv(file_path)
+        missing_columns = set(required_columns) - set(df.columns)
+        if missing_columns:
+            st.error(f"The CSV file is missing the following required columns: {', '.join(missing_columns)}")
+            continue
+    except Exception as e:
+        st.error(f"Error reading CSV file: {e}")
+        continue
+
+    # Proceed with tasks for CSV file
+    st.success("CSV file has all the required columns. Proceeding with other tasks.")
+    break
+
 # Load the existing dataset
-file_path = 'Housing.csv'
 data = pd.read_csv(file_path)
 
 # Split the data into features (X) and target (y)

@@ -9,13 +9,14 @@ from sklearn.impute import SimpleImputer
 import matplotlib.pyplot as plt
 import io
 
-
 # Function to add a row to the CSV file
 def add_row_to_csv(file_path, data):
     with open(file_path, 'a', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(data)
 
+def convert_df_to_csv(df):
+    return df.to_csv(index=False).encode('utf-8')
 
 def validate_file(uploaded_file):
     """Checks if the uploaded file is a CSV with the required columns."""
@@ -27,7 +28,6 @@ def validate_file(uploaded_file):
             return False, f"Missing required columns: {', '.join(set(required_columns) - set(df.columns))}"
     except Exception as e:
         return False, f"Error reading file: {str(e)}"
-
 
 required_columns = ['price', 'area', 'bedrooms', 'bathrooms', 'stories', 'mainroad', 'guestroom', 'basement',
                     'hotwaterheating', 'airconditioning', 'parking', 'prefarea', 'furnishingstatus']
@@ -106,11 +106,24 @@ if file is not None:
         predicted_price = model.predict(new_data)
         st.write("Predicted price: {:.2f}".format(predicted_price[0]))
 
+        sp = st.number_input("Enter the selling price: ")
 
-        # Add predicted data to CSV file
-        new_data_list = [predicted_price[0], area, bedrooms, bathrooms, stories, mainroad, guestroom, basement,
-                         hotwaterheating, airconditioning, parking, prefarea, furnishingstatus]
-        add_row_to_csv('uploaded_file.csv', new_data_list)
+        # Add predicted data to DataFrame
+        new_data['price'] = sp
+
+        # Add new row to existing data DataFrame using pd.concat
+        data = pd.concat([data, new_data], ignore_index=True)
+
+        # Convert DataFrame to CSV
+        updated_csv = convert_df_to_csv(data)
+
+        # Provide a download button for the updated CSV file
+        st.download_button(
+            label="Download updated file",
+            data=updated_csv,
+            file_name="updated_data.csv",
+            mime="text/csv"
+        )
 
         # Plotting existing data and predicted data
         plt.figure(figsize=(20, 10))

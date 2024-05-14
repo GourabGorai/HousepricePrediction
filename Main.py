@@ -72,16 +72,17 @@ if file is not None:
 
         # Get user input for new data
         st.title('House Price Prediction')
-        area = st.number_input("Enter the area in cm^2: ")
-        bedrooms = st.number_input("Enter number of bedrooms: ")
-        bathrooms = st.number_input("Enter number of bathrooms: ")
-        stories = st.number_input("Enter number of stories: ")
+        area = st.number_input("Enter the area in m^2: ")
+        bedrooms = st.number_input("Enter number of bedrooms:", step=1, format="%d")
+        bathrooms = st.number_input("Enter number of bathrooms:", step=1, format="%d")
+        stories = st.number_input("Enter number of stories:", step=1, format="%d")
+        parking = st.number_input("Number of parking:", step=1, format="%d")
+
         mainroad = st.radio("Mainroad available or not:", ('yes', 'no'))
         guestroom = st.radio("Guestroom available or not:", ('yes', 'no'))
         basement = st.radio("Basement available or not:", ('yes', 'no'))
         hotwaterheating = st.radio("Hotwater heating available or not:", ('yes', 'no'))
         airconditioning = st.radio("AC available or not:", ('yes', 'no'))
-        parking = st.number_input("Number of parking: ")
         prefarea = st.radio("Preferable area available or not:", ('yes', 'no'))
         furnishingstatus = st.selectbox("Select furnishing status:", ('furnished', 'semi-furnished', 'unfurnished'))
 

@@ -104,7 +104,8 @@ if file is not None:
 
         # Predict price
         predicted_price = model.predict(new_data)
-        st.write("Predicted price:", predicted_price[0])
+        st.write("Predicted price: {:.2f}".format(predicted_price[0]))
+
 
         # Add predicted data to CSV file
         new_data_list = [predicted_price[0], area, bedrooms, bathrooms, stories, mainroad, guestroom, basement,

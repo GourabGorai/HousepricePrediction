@@ -7,7 +7,8 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 import matplotlib.pyplot as plt
-import os
+import io
+
 
 # Function to add a row to the CSV file
 def add_row_to_csv(file_path, data):
@@ -15,118 +16,118 @@ def add_row_to_csv(file_path, data):
         writer = csv.writer(csvfile)
         writer.writerow(data)
 
-required_columns = ['price','area',	'bedrooms',	'bathrooms',	'stories',	'mainroad',	'guestroom',	'basement',	'hotwaterheating',	'airconditioning',	'parking',	'prefarea',	'furnishingstatus']  # Update with your required column names
 
-while True:
-    file_path = st.text_input("Enter the file path:")
-
-    if not os.path.isfile(file_path):
-        st.error("File not found. Please enter a valid file path.")
-        continue
-
-    file_extension = os.path.splitext(file_path)[1]
-
-    if file_extension.lower() != '.csv':
-        st.error("Invalid file format. Please enter a CSV file.")
-        continue
-
-    # Check if all required columns are present
+def validate_file(uploaded_file):
+    """Checks if the uploaded file is a CSV with the required columns."""
     try:
-        df = pd.read_csv(file_path)
-        missing_columns = set(required_columns) - set(df.columns)
-        if missing_columns:
-            st.error(f"The CSV file is missing the following required columns: {', '.join(missing_columns)}")
-            continue
+        df = pd.read_csv(uploaded_file, nrows=10)
+        if all(col in df.columns for col in required_columns):
+            return True, df
+        else:
+            return False, f"Missing required columns: {', '.join(set(required_columns) - set(df.columns))}"
     except Exception as e:
-        st.error(f"Error reading CSV file: {e}")
-        continue
+        return False, f"Error reading file: {str(e)}"
 
-    # Proceed with tasks for CSV file
-    st.success("CSV file has all the required columns. Proceeding with other tasks.")
-    break
 
-# Load the existing dataset
-data = pd.read_csv(file_path)
+required_columns = ['price', 'area', 'bedrooms', 'bathrooms', 'stories', 'mainroad', 'guestroom', 'basement',
+                    'hotwaterheating', 'airconditioning', 'parking', 'prefarea', 'furnishingstatus']
 
-# Split the data into features (X) and target (y)
-X = data.drop('price', axis=1)
-y = data['price']
+file = st.file_uploader("Choose a CSV file", type="csv")
 
-# Define preprocessing steps
-categorical_features = ['mainroad', 'guestroom', 'basement', 'hotwaterheating',
-                        'airconditioning', 'prefarea', 'furnishingstatus']
+if file is not None:
+    is_valid, message = validate_file(file)
+    if is_valid:
+        st.success("File uploaded successfully!")
 
-categorical_transformer = Pipeline(steps=[
-    ('imputer', SimpleImputer(strategy='constant', fill_value='missing')),  # Handle missing values
-    ('onehot', OneHotEncoder(drop='first'))
-])
+        # Reset the buffer to the beginning after validation
+        file.seek(0)
 
-preprocessor = ColumnTransformer(
-    transformers=[
-        ('cat', categorical_transformer, categorical_features)
-    ], remainder='passthrough')  # Keep non-categorical features
+        # Load the existing dataset
+        data = pd.read_csv(file)
 
-# Create pipeline with preprocessing and linear regression
-model = Pipeline(steps=[
-    ('preprocessor', preprocessor),
-    ('regressor', LinearRegression())
-])
+        # Split the data into features (X) and target (y)
+        X = data.drop('price', axis=1)
+        y = data['price']
 
-# Train the model
-model.fit(X, y)
+        # Define preprocessing steps
+        categorical_features = ['mainroad', 'guestroom', 'basement', 'hotwaterheating', 'airconditioning', 'prefarea',
+                                'furnishingstatus']
+        categorical_transformer = Pipeline(steps=[
+            ('imputer', SimpleImputer(strategy='constant', fill_value='missing')),  # Handle missing values
+            ('onehot', OneHotEncoder(drop='first'))
+        ])
+        preprocessor = ColumnTransformer(
+            transformers=[
+                ('cat', categorical_transformer, categorical_features)
+            ], remainder='passthrough')  # Keep non-categorical features
 
-# Get user input for new data
-st.title('House Price Prediction')
-area = st.number_input("Enter the area in cm^2: ")
-bedrooms = st.number_input("Enter number of bedrooms: ")
-bathrooms = st.number_input("Enter number of bathrooms: ")
-stories = st.number_input("Enter number of stories: ")
-mainroad = st.radio("Mainroad available or not:", ('yes', 'no'))
-guestroom = st.radio("Guestroom available or not:", ('yes', 'no'))
-basement = st.radio("Basement available or not:", ('yes', 'no'))
-hotwaterheating = st.radio("Hotwater heating available or not:", ('yes', 'no'))
-airconditioning = st.radio("AC available or not:", ('yes', 'no'))
-parking = st.number_input("Number of parking: ")
-prefarea = st.radio("Preferable area available or not:", ('yes', 'no'))
-furnishingstatus = st.selectbox("Select furnishing status:", ('furnished', 'semi-furnished', 'unfurnished'))
+        # Create pipeline with preprocessing and linear regression
+        model = Pipeline(steps=[
+            ('preprocessor', preprocessor),
+            ('regressor', LinearRegression())
+        ])
 
-# Create new data
-new_data = pd.DataFrame({
-    'area': [area],
-    'bedrooms': [bedrooms],
-    'bathrooms': [bathrooms],
-    'stories': [stories],
-    'mainroad': [mainroad],
-    'guestroom': [guestroom],
-    'basement': [basement],
-    'hotwaterheating': [hotwaterheating],
-    'airconditioning': [airconditioning],
-    'parking': [parking],
-    'prefarea': [prefarea],
-    'furnishingstatus': [furnishingstatus]
-})
+        # Train the model
+        model.fit(X, y)
 
-# Predict price
-predicted_price = model.predict(new_data)
-st.write("Predicted price:", predicted_price[0])
+        # Get user input for new data
+        st.title('House Price Prediction')
+        area = st.number_input("Enter the area in cm^2: ")
+        bedrooms = st.number_input("Enter number of bedrooms: ")
+        bathrooms = st.number_input("Enter number of bathrooms: ")
+        stories = st.number_input("Enter number of stories: ")
+        mainroad = st.radio("Mainroad available or not:", ('yes', 'no'))
+        guestroom = st.radio("Guestroom available or not:", ('yes', 'no'))
+        basement = st.radio("Basement available or not:", ('yes', 'no'))
+        hotwaterheating = st.radio("Hotwater heating available or not:", ('yes', 'no'))
+        airconditioning = st.radio("AC available or not:", ('yes', 'no'))
+        parking = st.number_input("Number of parking: ")
+        prefarea = st.radio("Preferable area available or not:", ('yes', 'no'))
+        furnishingstatus = st.selectbox("Select furnishing status:", ('furnished', 'semi-furnished', 'unfurnished'))
 
-# Add predicted data to CSV file
-new_data_list = [predicted_price[0], area, bedrooms, bathrooms, stories, mainroad, guestroom, basement, hotwaterheating, airconditioning, parking, prefarea, furnishingstatus]
-add_row_to_csv(file_path, new_data_list)
+        # Create new data
+        new_data = pd.DataFrame({
+            'area': [area],
+            'bedrooms': [bedrooms],
+            'bathrooms': [bathrooms],
+            'stories': [stories],
+            'mainroad': [mainroad],
+            'guestroom': [guestroom],
+            'basement': [basement],
+            'hotwaterheating': [hotwaterheating],
+            'airconditioning': [airconditioning],
+            'parking': [parking],
+            'prefarea': [prefarea],
+            'furnishingstatus': [furnishingstatus]
+        })
 
-# Plotting existing data and predicted data
-plt.figure(figsize=(20, 10))
+        # Predict price
+        predicted_price = model.predict(new_data)
+        st.write("Predicted price:", predicted_price[0])
 
-# Plot existing data
-plt.scatter(data['area'], data['price'], color='blue', label='Existing Data')
+        # Add predicted data to CSV file
+        new_data_list = [predicted_price[0], area, bedrooms, bathrooms, stories, mainroad, guestroom, basement,
+                         hotwaterheating, airconditioning, parking, prefarea, furnishingstatus]
+        add_row_to_csv('uploaded_file.csv', new_data_list)
 
-# Plot predicted data
-plt.scatter(area, predicted_price, color='red', label='Predicted Data')
+        # Plotting existing data and predicted data
+        plt.figure(figsize=(20, 10))
 
-plt.title('House Price Prediction')
-plt.xlabel('Area')
-plt.ylabel('Price')
-plt.legend()
-plt.grid(True)
+        # Plot existing data
+        plt.scatter(data['area'], data['price'], color='blue', label='Existing Data')
 
-st.pyplot(plt)
+        # Plot predicted data
+        plt.scatter(area, predicted_price, color='red', label='Predicted Data')
+
+        plt.title('House Price Prediction')
+        plt.xlabel('Area')
+        plt.ylabel('Price')
+        plt.legend()
+        plt.grid(True)
+
+        st.pyplot(plt)
+    else:
+        st.error(message)
+        st.write("Please upload a valid CSV file with the required columns.")
+else:
+    st.info("Upload a CSV file to proceed.")

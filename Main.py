@@ -45,6 +45,9 @@ if file is not None:
         # Load the existing dataset
         data = pd.read_csv(file)
 
+        # Sort the data by the 'area' column
+        data = data.sort_values(by='area')
+
         # Split the data into features (X) and target (y)
         X = data.drop('price', axis=1)
         y = data['price']

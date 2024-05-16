@@ -31,6 +31,9 @@ def validate_file(uploaded_file):
 
 required_columns = ['price', 'area', 'bedrooms', 'bathrooms', 'stories', 'mainroad', 'guestroom', 'basement',
                     'hotwaterheating', 'airconditioning', 'parking', 'prefarea', 'furnishingstatus']
+st.write("Welcome to HOUSE PRICE PREDICTION software. Upload only .csv files and must have the following columns:- price,	area,	bedrooms,	bathrooms,	stories,	mainroad,	guestroom,	basement,	hotwaterheating,	airconditioning,	parking,	prefarea,	furnishingstatus")
+st.write("Created by:-")
+st.write("Name:- Gourab Gorai | Reg. no:- 223231010051 | University Roll no.:- 32301222016")
 
 file = st.file_uploader("Choose a CSV file", type="csv")
 
@@ -73,6 +76,9 @@ if file is not None:
         # Train the model
         model.fit(X, y)
 
+        # Get the model's accuracy (R² score)
+        accuracy = model.score(X, y) * 100
+
         # Get user input for new data
         st.title('House Price Prediction')
         area = st.number_input("Enter the area in m^2: ")
@@ -108,6 +114,7 @@ if file is not None:
         # Predict price
         predicted_price = model.predict(new_data)
         st.write("Predicted price: {:.2f}".format(predicted_price[0]))
+        st.write("Model accuracy: {:.2f}%".format(accuracy))
 
         sp = st.number_input("Enter the selling price: ")
 

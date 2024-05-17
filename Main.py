@@ -6,6 +6,7 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
+from sklearn.metrics import r2_score
 import matplotlib.pyplot as plt
 import io
 
@@ -76,8 +77,6 @@ if file is not None:
         # Train the model
         model.fit(X, y)
 
-        # Get the model's accuracy (R² score)
-        accuracy = model.score(X, y) * 100
 
         # Get user input for new data
         st.title('House Price Prediction')
@@ -114,7 +113,6 @@ if file is not None:
         # Predict price
         predicted_price = model.predict(new_data)
         st.write("Predicted price: {:.2f}".format(predicted_price[0]))
-        st.write("Model accuracy: {:.2f}%".format(accuracy))
 
         sp = st.number_input("Enter the selling price: ")
 

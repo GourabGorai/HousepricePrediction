@@ -10,14 +10,17 @@ from sklearn.metrics import r2_score
 import matplotlib.pyplot as plt
 import io
 
+
 # Function to add a row to the CSV file
 def add_row_to_csv(file_path, data):
     with open(file_path, 'a', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(data)
 
+
 def convert_df_to_csv(df):
     return df.to_csv(index=False).encode('utf-8')
+
 
 def validate_file(uploaded_file):
     """Checks if the uploaded file is a CSV with the required columns."""
@@ -30,9 +33,11 @@ def validate_file(uploaded_file):
     except Exception as e:
         return False, f"Error reading file: {str(e)}"
 
+
 required_columns = ['price', 'area', 'bedrooms', 'bathrooms', 'stories', 'mainroad', 'guestroom', 'basement',
                     'hotwaterheating', 'airconditioning', 'parking', 'prefarea', 'furnishingstatus']
-st.write("Welcome to HOUSE PRICE PREDICTION software. Upload only .csv files and must have the following columns:- price,	area,	bedrooms,	bathrooms,	stories,	mainroad,	guestroom,	basement,	hotwaterheating,	airconditioning,	parking,	prefarea,	furnishingstatus")
+st.write(
+    "Welcome to HOUSE PRICE PREDICTION software. Upload only .csv files and must have the following columns:- price,	area,	bedrooms,	bathrooms,	stories,	mainroad,	guestroom,	basement,	hotwaterheating,	airconditioning,	parking,	prefarea,	furnishingstatus")
 st.write("Created by:-")
 st.write("Name:- Gourab Gorai | Reg. no:- 223231010051 | University Roll no.:- 32301222016")
 
@@ -77,7 +82,6 @@ if file is not None:
         # Train the model
         model.fit(X, y)
 
-
         # Get user input for new data
         st.title('House Price Prediction')
         area = st.number_input("Enter the area in m^2: ")
@@ -116,39 +120,44 @@ if file is not None:
 
         sp = st.number_input("Enter the selling price: ")
 
-        # Add predicted data to DataFrame
-        new_data['price'] = sp
+        if st.button('Submit'):
+            # Add predicted data to DataFrame
+            new_data['price'] = sp
 
-        # Add new row to existing data DataFrame using pd.concat
-        data = pd.concat([data, new_data], ignore_index=True)
+            # Add new row to existing data DataFrame using pd.concat
+            data = pd.concat([data, new_data], ignore_index=True)
 
-        # Convert DataFrame to CSV
-        updated_csv = convert_df_to_csv(data)
+            # Save updated data to CSV file
+            updated_csv = convert_df_to_csv(data)
 
-        # Provide a download button for the updated CSV file
-        st.download_button(
-            label="Download updated file",
-            data=updated_csv,
-            file_name="updated_data.csv",
-            mime="text/csv"
-        )
+            # Show the updated data
+            st.write("Updated Data:")
+            st.dataframe(data)
 
-        # Plotting existing data and predicted data
-        plt.figure(figsize=(20, 10))
+            # Provide a download button for the updated CSV file
+            st.download_button(
+                label="Download updated file",
+                data=updated_csv,
+                file_name="updated_data.csv",
+                mime="text/csv"
+            )
 
-        # Plot existing data
-        plt.scatter(data['area'], data['price'], color='blue', label='Existing Data')
+            # Plotting existing data and predicted data
+            plt.figure(figsize=(20, 10))
 
-        # Plot predicted data
-        plt.scatter(area, predicted_price, color='red', label='Predicted Data')
+            # Plot existing data
+            plt.scatter(data['area'], data['price'], color='blue', label='Existing Data')
 
-        plt.title('House Price Prediction')
-        plt.xlabel('Area')
-        plt.ylabel('Price')
-        plt.legend()
-        plt.grid(True)
+            # Plot predicted data
+            plt.scatter(area, predicted_price, color='red', label='Predicted Data')
 
-        st.pyplot(plt)
+            plt.title('House Price Prediction')
+            plt.xlabel('Area')
+            plt.ylabel('Price')
+            plt.legend()
+            plt.grid(True)
+
+            st.pyplot(plt)
     else:
         st.error(message)
         st.write("Please upload a valid CSV file with the required columns.")

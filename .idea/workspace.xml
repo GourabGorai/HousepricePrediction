@@ -25,6 +25,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="LLMProjectSettings">
+    <option name="aiignore_manually_set" value="true" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -54,8 +57,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.17011.40" />
-        <option value="bundled-python-sdk-d3cf267f4206-e4cd029cde1e-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.17011.40" />
+        <option value="bundled-js-predefined-1d06a55b98c1-cb551a44b0f8-JavaScript-PY-242.10180.30" />
+        <option value="bundled-python-sdk-7efad6460ed6-db4a76ca2eac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.10180.30" />
       </set>
     </attachedChunks>
   </component>
@@ -82,6 +85,7 @@
       <workItem from="1715835130687" duration="1176000" />
       <workItem from="1715840184628" duration="1606000" />
       <workItem from="1715926915919" duration="1579000" />
+      <workItem from="1716551469297" duration="798000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -179,7 +183,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715841774738</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="commit">
+      <option name="closed" value="true" />
+      <created>1716551627473</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1716551627474</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

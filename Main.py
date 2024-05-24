@@ -8,20 +8,14 @@ from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.metrics import r2_score
 import matplotlib.pyplot as plt
-import io
 
 
-# Function to add a row to the CSV file
-def add_row_to_csv(file_path, data):
-    with open(file_path, 'a', newline='') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(data)
-
-
+# Function to convert DataFrame to CSV
 def convert_df_to_csv(df):
     return df.to_csv(index=False).encode('utf-8')
 
 
+# Function to validate the uploaded file
 def validate_file(uploaded_file):
     """Checks if the uploaded file is a CSV with the required columns."""
     try:
@@ -34,8 +28,10 @@ def validate_file(uploaded_file):
         return False, f"Error reading file: {str(e)}"
 
 
+# Required columns in the CSV file
 required_columns = ['price', 'area', 'bedrooms', 'bathrooms', 'stories', 'mainroad', 'guestroom', 'basement',
                     'hotwaterheating', 'airconditioning', 'parking', 'prefarea', 'furnishingstatus']
+
 st.write(
     "Welcome to HOUSE PRICE PREDICTION software. Upload only .csv files and must have the following columns:- price,	area,	bedrooms,	bathrooms,	stories,	mainroad,	guestroom,	basement,	hotwaterheating,	airconditioning,	parking,	prefarea,	furnishingstatus")
 st.write("Created by:-")
@@ -54,8 +50,12 @@ if file is not None:
         # Load the existing dataset
         data = pd.read_csv(file)
 
+        # Initialize session state to store data
+        if 'data' not in st.session_state:
+            st.session_state.data = data
+
         # Sort the data by the 'area' column
-        data = data.sort_values(by='area')
+        data = st.session_state.data.sort_values(by='area')
 
         # Split the data into features (X) and target (y)
         X = data.drop('price', axis=1)
@@ -125,14 +125,14 @@ if file is not None:
             new_data['price'] = sp
 
             # Add new row to existing data DataFrame using pd.concat
-            data = pd.concat([data, new_data], ignore_index=True)
+            st.session_state.data = pd.concat([st.session_state.data, new_data], ignore_index=True)
 
             # Save updated data to CSV file
-            updated_csv = convert_df_to_csv(data)
+            updated_csv = convert_df_to_csv(st.session_state.data)
 
             # Show the updated data
             st.write("Updated Data:")
-            st.dataframe(data)
+            st.dataframe(st.session_state.data)
 
             # Provide a download button for the updated CSV file
             st.download_button(
@@ -146,7 +146,8 @@ if file is not None:
             plt.figure(figsize=(20, 10))
 
             # Plot existing data
-            plt.scatter(data['area'], data['price'], color='blue', label='Existing Data')
+            plt.scatter(st.session_state.data['area'], st.session_state.data['price'], color='blue',
+                        label='Existing Data')
 
             # Plot predicted data
             plt.scatter(area, predicted_price, color='red', label='Predicted Data')

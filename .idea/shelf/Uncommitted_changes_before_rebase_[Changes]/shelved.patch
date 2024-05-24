@@ -1,0 +1,92 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"2cc7c6df-75d6-414e-8065-d05d42af7d43\" name=\"Changes\" comment=\"commit\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Main.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Main.py\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 0\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2gJBJVZ1H3WjpORAaVrGjceHOgV\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,\r\n    &quot;Python.Main.executor&quot;: &quot;Run&quot;,\r\n    &quot;Python.sample.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.17011.40\" />\r\n        <option value=\"bundled-python-sdk-d3cf267f4206-e4cd029cde1e-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.17011.40\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"2cc7c6df-75d6-414e-8065-d05d42af7d43\" name=\"Changes\" comment=\"\" />\r\n      <created>1715405729196</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1715405729196</updated>\r\n      <workItem from=\"1715405734628\" duration=\"2603000\" />\r\n      <workItem from=\"1715408996153\" duration=\"662000\" />\r\n      <workItem from=\"1715442366829\" duration=\"3282000\" />\r\n      <workItem from=\"1715529376720\" duration=\"3096000\" />\r\n      <workItem from=\"1715659720620\" duration=\"1732000\" />\r\n      <workItem from=\"1715667474182\" duration=\"354000\" />\r\n      <workItem from=\"1715671236814\" duration=\"544000\" />\r\n      <workItem from=\"1715674393890\" duration=\"1411000\" />\r\n      <workItem from=\"1715691681818\" duration=\"1711000\" />\r\n      <workItem from=\"1715693833885\" duration=\"2925000\" />\r\n      <workItem from=\"1715753232340\" duration=\"645000\" />\r\n      <workItem from=\"1715754611355\" duration=\"45000\" />\r\n      <workItem from=\"1715835130687\" duration=\"1176000\" />\r\n      <workItem from=\"1715840184628\" duration=\"1606000\" />\r\n      <workItem from=\"1715926915919\" duration=\"1579000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"commit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715406902509</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715406902509</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"commit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715444267621</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715444267621</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"commit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715444736333</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715444736333</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"commit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715445245389</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715445245389</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"commit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715531053963</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715531053963</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"commit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715531654162</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715531654162</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"commit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715667933592</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715667933592</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"commit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715675734262</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715675734262</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"commit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715694032812</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715694032812</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"commit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715696813826</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715696813826</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"commit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715836288363</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715836288363</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"commit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715841774738</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715841774738</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"13\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"commit\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"commit\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/HousepricePrediction$sample.coverage\" NAME=\"sample Coverage Results\" MODIFIED=\"1715659871944\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$\" />\r\n    <SUITE FILE_PATH=\"coverage/HousepricePrediction$Main.coverage\" NAME=\"Main Coverage Results\" MODIFIED=\"1715928495413\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -6,7 +6,6 @@
+   <component name="ChangeListManager">
+     <list default="true" id="2cc7c6df-75d6-414e-8065-d05d42af7d43" name="Changes" comment="commit">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -22,6 +21,9 @@
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="LLMProjectSettings">
++    <option name="aiignore_manually_set" value="true" />
+   </component>
+   <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 0
+@@ -39,6 +41,7 @@
+     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+     &quot;Python.Main.executor&quot;: &quot;Run&quot;,
+     &quot;Python.sample.executor&quot;: &quot;Run&quot;,
++    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+@@ -52,8 +55,8 @@
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.17011.40" />
+-        <option value="bundled-python-sdk-d3cf267f4206-e4cd029cde1e-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.17011.40" />
++        <option value="bundled-js-predefined-1d06a55b98c1-cb551a44b0f8-JavaScript-PY-242.10180.30" />
++        <option value="bundled-python-sdk-7efad6460ed6-db4a76ca2eac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.10180.30" />
+       </set>
+     </attachedChunks>
+   </component>
+@@ -79,7 +82,15 @@
+       <workItem from="1715754611355" duration="45000" />
+       <workItem from="1715835130687" duration="1176000" />
+       <workItem from="1715840184628" duration="1606000" />
+-      <workItem from="1715926915919" duration="1579000" />
++      <workItem from="1715926915919" duration="1900000" />
++      <workItem from="1715958034822" duration="625000" />
++      <workItem from="1716083105539" duration="63000" />
++      <workItem from="1716084394893" duration="1725000" />
++      <workItem from="1716198346867" duration="962000" />
++      <workItem from="1716207871916" duration="294000" />
++      <workItem from="1716385721368" duration="54000" />
++      <workItem from="1716387594537" duration="626000" />
++      <workItem from="1716550395008" duration="813000" />
+     </task>
+     <task id="LOCAL-00001" summary="commit">
+       <option name="closed" value="true" />
+@@ -177,7 +188,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1715841774738</updated>
+     </task>
+-    <option name="localTasksCounter" value="13" />
++    <task id="LOCAL-00013" summary="commit">
++      <option name="closed" value="true" />
++      <created>1715928823180</created>
++      <option name="number" value="00013" />
++      <option name="presentableId" value="LOCAL-00013" />
++      <option name="project" value="LOCAL" />
++      <updated>1715928823180</updated>
++    </task>
++    <option name="localTasksCounter" value="14" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -189,7 +208,8 @@
+     <option name="LAST_COMMIT_MESSAGE" value="commit" />
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
++    <SUITE FILE_PATH="coverage/HousepricePrediction$Main.coverage" NAME="Main Coverage Results" MODIFIED="1716550790049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+     <SUITE FILE_PATH="coverage/HousepricePrediction$sample.coverage" NAME="sample Coverage Results" MODIFIED="1715659871944" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+-    <SUITE FILE_PATH="coverage/HousepricePrediction$Main.coverage" NAME="Main Coverage Results" MODIFIED="1715928495413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
++    <SUITE FILE_PATH="coverage/HousepricePrediction$test.coverage" NAME="test Coverage Results" MODIFIED="1716208019025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+   </component>
+ </project>
+\ No newline at end of file

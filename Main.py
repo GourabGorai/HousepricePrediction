@@ -9,11 +9,9 @@ from sklearn.impute import SimpleImputer
 from sklearn.metrics import r2_score
 import matplotlib.pyplot as plt
 
-
 # Function to convert DataFrame to CSV
 def convert_df_to_csv(df):
     return df.to_csv(index=False).encode('utf-8')
-
 
 # Function to validate the uploaded file
 def validate_file(uploaded_file):
@@ -27,13 +25,12 @@ def validate_file(uploaded_file):
     except Exception as e:
         return False, f"Error reading file: {str(e)}"
 
-
 # Required columns in the CSV file
 required_columns = ['price', 'area', 'bedrooms', 'bathrooms', 'stories', 'mainroad', 'guestroom', 'basement',
                     'hotwaterheating', 'airconditioning', 'parking', 'prefarea', 'furnishingstatus']
 
 st.write(
-    "Welcome to HOUSE PRICE PREDICTION software. Upload only .csv files and must have the following columns:- price,	area,	bedrooms,	bathrooms,	stories,	mainroad,	guestroom,	basement,	hotwaterheating,	airconditioning,	parking,	prefarea,	furnishingstatus")
+    "Welcome to HOUSE PRICE PREDICTION software. Upload only .csv files and must have the following columns:- price, area, bedrooms, bathrooms, stories, mainroad, guestroom, basement, hotwaterheating, airconditioning, parking, prefarea, furnishingstatus")
 st.write("Created by:-")
 st.write("Name:- Gourab Gorai | Reg. no:- 223231010051 | University Roll no.:- 32301222016")
 
@@ -53,6 +50,8 @@ if file is not None:
         # Initialize session state to store data
         if 'data' not in st.session_state:
             st.session_state.data = data
+            st.session_state.selling_prices = []
+            st.session_state.predicted_prices = []
 
         # Sort the data by the 'area' column
         data = st.session_state.data.sort_values(by='area')
@@ -159,6 +158,21 @@ if file is not None:
             plt.grid(True)
 
             st.pyplot(plt)
+
+            # Update lists
+            st.session_state.selling_prices.append(sp)
+            st.session_state.predicted_prices.append(predicted_price[0])
+
+            # Calculate accuracy if we have 3 data points
+            if len(st.session_state.selling_prices) == 3:
+                r2 = r2_score(st.session_state.selling_prices, st.session_state.predicted_prices)
+                accuracy_percentage = r2 * 100
+                st.write(f"Accuracy based on the last 3 entries: {accuracy_percentage:.2f}%")
+
+                # Reset lists
+                st.session_state.selling_prices = []
+                st.session_state.predicted_prices = []
+
     else:
         st.error(message)
         st.write("Please upload a valid CSV file with the required columns.")
